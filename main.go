@@ -1,9 +1,9 @@
 package main
 
 import (
-	"zhisheng-jing/loan-manager/global"
-	"zhisheng-jing/loan-manager/model"
-	"zhisheng-jing/loan-manager/router"
+"zhisheng-jing/loan-manager/global"
+"zhisheng-jing/loan-manager/model"
+"zhisheng-jing/loan-manager/router"
 )
 
 func init() {

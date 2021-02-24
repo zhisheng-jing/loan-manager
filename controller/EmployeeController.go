@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -19,7 +18,8 @@ func (e *EmployeeController) GetEmployeeByID(c *gin.Context) {
 	employee, err := service.NewEmployeeService().GetEmployeeByID(id)
 	if err != nil {
 		c.AbortWithStatus(404)
-		fmt.Println(err.Error())
+		c.JSON(http.StatusNotFound,gin.H{"msg":err.Error(),"data":""})
+		return
 	}
 	c.JSON(http.StatusOK, &employee)
 	return
@@ -33,8 +33,8 @@ func (e *EmployeeController) GetEmployeeByCode(c *gin.Context) {
 	code := c.Param("code")
 	employee, err := service.NewEmployeeService().GetEmployeeByCode(code)
 	if err != nil {
-		c.AbortWithStatus(404)
-		fmt.Println(err.Error())
+		c.JSON(http.StatusNotFound,gin.H{"msg":err.Error(),"data":""})
+		return
 	}
 	c.JSON(http.StatusOK, &employee)
 	return
