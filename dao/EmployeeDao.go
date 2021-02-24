@@ -1,7 +1,6 @@
 package dao
 
 import (
-	"errors"
 	"zhisheng-jing/loan-manager/global"
 	. "zhisheng-jing/loan-manager/model"
 )
@@ -38,9 +37,6 @@ func (e EmployeeDao) GetEmployeeByCode(code string) (*Employee, error) {
 
 	if result.Error != nil {
 		return  nil, result.Error
-	}
-	if employee.ID == 0{
-		return nil, errors.New("没找到")
 	}
 	return employee, nil
 }
